@@ -38,3 +38,5 @@ npm i -g @nestjs/cli
 ```shell
 docker-compose up -d
 ```
+
+## Creacion de seeds
