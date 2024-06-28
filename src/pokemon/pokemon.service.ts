@@ -9,11 +9,7 @@ import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Model, isValidObjectId } from 'mongoose';
 import { Pokemon } from './entities/pokemon.entity';
 import { InjectModel } from '@nestjs/mongoose';
-
-interface FindAllParams {
-  limit: number;
-  offset: number;
-}
+import { FindAllParams } from 'src/common/interfaces';
 
 @Injectable()
 export class PokemonService {

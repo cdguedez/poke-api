@@ -25,10 +25,15 @@ export class PokemonController {
 
   @Get()
   findAll(
-    @Query('limit', ParseIntPipe) limit: number,
-    @Query('offset', ParseIntPipe) offset: number,
+    @Query('limit', new ParseIntPipe({ optional: true })) limit?: number,
+    @Query('offset', new ParseIntPipe({ optional: true })) offset?: number,
   ) {
-    return this.pokemonService.findAll({ limit, offset });
+    const limitParams = limit ?? 10;
+    const offsetParams = offset ?? 0;
+    return this.pokemonService.findAll({
+      limit: limitParams,
+      offset: offsetParams,
+    });
   }
 
   @Get(':term')
