@@ -1,1 +1,1 @@
-export * from './find-all-resource';
+export * from './http-adapter.interface';

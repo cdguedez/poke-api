@@ -7,12 +7,12 @@ import {
   Param,
   Delete,
   Query,
-  ParseIntPipe,
 } from '@nestjs/common';
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Controller('pokemon')
 export class PokemonController {
@@ -24,16 +24,8 @@ export class PokemonController {
   }
 
   @Get()
-  findAll(
-    @Query('limit', new ParseIntPipe({ optional: true })) limit?: number,
-    @Query('offset', new ParseIntPipe({ optional: true })) offset?: number,
-  ) {
-    const limitParams = limit ?? 10;
-    const offsetParams = offset ?? 0;
-    return this.pokemonService.findAll({
-      limit: limitParams,
-      offset: offsetParams,
-    });
+  findAll(@Query() paginationDto: PaginationDto) {
+    return this.pokemonService.findAll(paginationDto);
   }
 
   @Get(':term')
