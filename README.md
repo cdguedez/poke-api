@@ -39,4 +39,8 @@ npm i -g @nestjs/cli
 docker-compose up -d
 ```
 
+5. Crear .env desde el archivo __.env.template__
+
+6. Asignar valor a las variables de entorno al __.env__
+
 ## Creacion de seeds
