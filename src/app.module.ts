@@ -9,10 +9,12 @@ import { PokemonModule } from './pokemon/pokemon.module';
 import { CommonModule } from './common/common.module';
 import { SeedModule } from './seed/seed.module';
 import { appConfiguration } from './config/app.config';
+import { JoiSchemaValidation } from './config/joi-schema-validation';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
+      validationSchema: JoiSchemaValidation,
       load: [appConfiguration],
     }),
     ServeStaticModule.forRoot({
