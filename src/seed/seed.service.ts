@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 import { Model } from 'mongoose';
 import { AxiosAdapter } from 'src/common/adapters/axios.adapter';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Injectable()
 export class SeedService {
@@ -15,7 +16,8 @@ export class SeedService {
 
   private readonly URL: string = 'https://pokeapi.co/api/v2/pokemon';
 
-  async execSeeds({ limit, offset }) {
+  async execSeeds(paginationDto: PaginationDto) {
+    const { limit = 10, offset = 0 } = paginationDto;
     await this.pokemonModel.deleteMany({});
     const data = await this.http.get<PokeResponse>(
       `${this.URL}?limit=${limit}&offset=${offset}`,
