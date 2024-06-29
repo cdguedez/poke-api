@@ -14,7 +14,7 @@ services:
       - "${PORT}:${PORT}"
     # working_dir: /var/www/pokedex
     environment:
-      MONGODB: ${MONGODB_URI}
+      MONGODB: ${MONGO_URL}
       PORT: ${PORT}
     # volumes:
     #   - ./:/var/www/pokedex
@@ -26,6 +26,6 @@ services:
     ports:
       - 27017:27017
     environment:
-      MONGODB_DATABASE: ${MONGODB_NAME}
+      MONGODB_DATABASE: pokemons
     volumes:
       - ./mongo:/data/db

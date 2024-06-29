@@ -7,6 +7,6 @@ services:
     ports:
       - 27017:27017 # physical port:container port
     environment:
-      MONGO_DATABASE: nestjs
+      MONGO_DATABASE: ${MONGODB_NAME}
     volumes:
       - ./mongo:/data/db
