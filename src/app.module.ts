@@ -29,4 +29,8 @@ import { JoiSchemaValidation } from './config/joi-schema-validation';
     SeedModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('INIT ENV', process.env);
+  }
+}
