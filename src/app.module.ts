@@ -29,8 +29,4 @@ import { appConfiguration } from './config/app.config';
     SeedModule,
   ],
 })
-export class AppModule {
-  constructor() {
-    console.log('INIT ENV', process.env);
-  }
-}
+export class AppModule {}
