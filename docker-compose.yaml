@@ -1,28 +1,12 @@
 version: '3'
 
 services:
-  pokeapi:
-    depends_on:
-      - db
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: pokedex-docker
-    container_name: pokedexapp
-    restart: always
-    ports:
-      - "${PORT}:${PORT}"
-    environment:
-      MONGODB: ${MONGO_URL}
-      PORT: ${PORT}
-
   db:
     image: mongo:5
-    container_name: mongo-poke
     restart: always
     ports:
       - 27017:27017
     environment:
-      MONGO_DATABASE: ${MONGODB_NAME}
+      MONGODB_DATABASE: pokemons
     volumes:
       - ./mongo:/data/db

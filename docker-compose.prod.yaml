@@ -12,9 +12,12 @@ services:
     restart: always # reiniciar el contenedor si se detiene
     ports:
       - "${PORT}:${PORT}"
+    # working_dir: /var/www/pokedex
     environment:
-      MONGODB: ${MONGO_URL}
+      MONGODB: ${MONGODB}
       PORT: ${PORT}
+    # volumes:
+    #   - ./:/var/www/pokedex
 
   db:
     image: mongo:5
