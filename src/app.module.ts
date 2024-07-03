@@ -22,7 +22,7 @@ import { appConfiguration } from './config/app.config';
     }),
 
     MongooseModule.forRoot(process.env.MONGODB, {
-      dbName: process.env.MONGO_NAME,
+      dbName: `${process.env.MONGO_NAME}`,
     }),
     PokemonModule,
     CommonModule,
