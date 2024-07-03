@@ -43,4 +43,14 @@ docker-compose up -d
 
 6. Asignar valor a las variables de entorno al __.env__
 
-## Creacion de seeds
+## docker
+
+### Build crear nueva imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
+
+### Run ejecutar imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up
+```
