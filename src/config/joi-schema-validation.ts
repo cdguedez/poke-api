@@ -1,7 +1,7 @@
 import * as joi from 'joi';
 
 export const JoiSchemaValidation = joi.object({
-  MONGO_URL: joi.string().required(),
+  MONGODB: joi.string().required(),
   PORT: joi.number().default(3000),
-  POKEAPI_URL: joi.string().required(),
+  POKE_API_URL: joi.string().required(),
 });

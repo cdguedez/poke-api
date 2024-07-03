@@ -21,9 +21,7 @@ import { appConfiguration } from './config/app.config';
       rootPath: join(__dirname, '..', 'public'),
     }),
 
-    MongooseModule.forRoot(process.env.MONGODB, {
-      dbName: `${process.env.MONGO_NAME}`,
-    }),
+    MongooseModule.forRoot(process.env.MONGODB),
     PokemonModule,
     CommonModule,
     SeedModule,
